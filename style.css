@@ -1,3 +1,30 @@
+html {
+    background-image: url(background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.frame {
+    border: 50px solid red;
+    border-bottom: 90px solid red;
+    border-radius: 20px;
+    box-shadow: 0 0 10px red;
+    width: 700px;
+    height: 700px;
+    margin: auto;
+    margin-top: 50px;
+}
+.container {
+    /* padding: 0.5px; */
+    width: 700px;
+    height: 700px;
+    margin: auto;
+    margin-right: 100px;
+    background-color: white;
+    box-shadow: 0 0 20px white;
+    
+}
 .square {
-    border: 0.5px solid black;
+    border: 0.5px solid grey;
+    width: 43.75px;
+    height: 43.75px;
 }

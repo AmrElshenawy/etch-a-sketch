@@ -3,28 +3,35 @@ html {
     background-repeat: no-repeat;
     background-size: cover;
 }
+:root {
+    --quantity: 16;
+}
 .frame {
+    height: 90vh;
+    width: 50vw;
     border: 50px solid red;
     border-bottom: 90px solid red;
     border-radius: 20px;
     box-shadow: 0 0 10px red;
-    width: 700px;
-    height: 700px;
     margin: auto;
     margin-top: 50px;
 }
-.container {
-    /* padding: 0.5px; */
-    width: 700px;
-    height: 700px;
+#container {
+    display: grid;
+    grid-template-columns: repeat(var(--quantity), 1fr);
+    grid-template-rows: repeat(var(--quantity), 1fr);
+    height: 100%;
+    width: 100%;
     margin: auto;
-    margin-right: 100px;
-    background-color: white;
+    margin-bottom: 40px;
+    /* opacity: 0.5; */
+    /* background-color: white; */
     box-shadow: 0 0 20px white;
     
 }
-.square {
-    border: 0.5px solid grey;
-    width: 43.75px;
-    height: 43.75px;
+.cell {
+    border: 0.1px solid rgb(187, 182, 182);
+    background-color: white;
+    width: auto;
+    height: auto;
 }

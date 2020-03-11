@@ -1,67 +1,57 @@
 //Global variables//
 const container = document.querySelector("#container");
+const shadesofgrey = document.querySelector("#shadesofgrey");
+const colorful = document.querySelector("#colorful");
 const reset = document.querySelector("#reset");
 const gridLines = document.documentElement;
 const cells = document.getElementsByClassName("cell");
 
+function random256() {
+    return Math.floor(Math.random() * 256);
+}
 
-//Create default grid//
-function createCells(quantity = 16) {
-    for (let i = 0; i < quantity ** 2; ++i) {
+function defaultGrid(size) {
+    for (let i = 0; i < size * size; i++) {
         const newDiv = document.createElement("div");
         newDiv.classList.add("cell");
+        newDiv.addEventListener('mouseenter', () => {
+            let greyScale = random256();
+            newDiv.style.backgroundColor = `rgb(${greyScale}, ${greyScale}, ${greyScale})`;
+        });
         container.appendChild(newDiv);
     }
 }
-
-
-//Create color using random hexadecimal value//
-/* function createColor() {
-    return "#" + Math.floor(Math.random() * 16777215).toString(16);
-} */
-
-
-//Color cells if empty, otherwise decreases their brightness//
-function cellColor() {
-    for (let i = 0; i < cells.length; i++) {
-        cells[i].addEventListener("mouseover", (e) => {
-            let brightness = getComputedStyle(e.target).getPropertyValue("filter").split(/\(([^)]+)\)/);
-            if (brightness == "none") {
-                e.target.style.backgroundColor = createColor();
-                e.target.style.filter = "brightness(1)";
-            } else if (brightness[1] > 0) {
-                e.target.style.filter = `brightness(${brightness[1] - 0.2})`;
-            }
-        })
-    }
+function paintGrey() {
+    let newDiv = [...document.querySelectorAll('.cell')];
+    newDiv.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            let greyScale = random256();
+            element.style.backgroundColor = `rgb(${greyScale}, ${greyScale}, ${greyScale})`;
+        });
+    });
+}
+function paintColors() {
+    let newDiv = [...document.querySelectorAll('.cell')];
+    newDiv.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            element.style.backgroundColor = `rgb(${random256()}, ${random256()}, ${random256()})`;
+        });
+    });
+}
+function resetAll() {
+    removeGrid();
+    let size = prompt('Select a grid size between 2 and 100','');
 }
 
-
-//Clear cells inline code to reset their color//
-function cellClear() {
-    for (let i = 0; i < cells.length; i++) {
-        cells[i].addEventListener("click", () => {
-            cells[i].removeAttribute("style")
-        })
-    }
-}
-
-
-//Create grid based on user input and re-initialize the app//
-reset.addEventListener("click", () => {
-    container.innerHTML = ""
-    const quantity = prompt("Set the grid using a value between 2 and 64.");
-    if (quantity < 2 || quantity > 64) {
-        quantity = prompt("Please insert a value from 2 to 64.")
-    }
-    createCells(quantity);
-    gridLines.style.setProperty("--quantity", quantity)
-    cellColor();
-    cellClear();
+shadesofgrey.addEventListener('click', () => {
+    paintGrey();
 })
 
+colorful.addEventListener('click', () => {
+    paintColors();
+})
+reset.addEventListener('click', () => {
+    resetAll();
+})
 
-//Initialize the app//
-createCells();
-cellColor();
-cellClear();
+defaultGrid(16);

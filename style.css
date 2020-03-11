@@ -30,7 +30,7 @@ html {
     
 }
 .cell {
-    border: 0.1px solid rgb(187, 182, 182);
+    border: 0.1px solid #bebcbc;
     background-color: white;
     width: auto;
     height: auto;

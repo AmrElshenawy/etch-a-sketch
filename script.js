@@ -18,6 +18,7 @@ function defaultGrid(size) {
         newDiv.addEventListener('mouseenter', () => {
             let greyScale = random256();
             newDiv.style.backgroundColor = `rgb(${greyScale}, ${greyScale}, ${greyScale})`;
+            newDiv.style.transition = '0.3s';
         });
         container.appendChild(newDiv);
     }
@@ -28,14 +29,16 @@ function paintGrey() {
         element.addEventListener('mouseenter', () => {
             let greyScale = random256();
             element.style.backgroundColor = `rgb(${greyScale}, ${greyScale}, ${greyScale})`;
+            newDiv.style.transition = '0.3s';
         });
     });
 }
 function paintColors() {
     let newDiv = [...document.querySelectorAll('.cell')];
     newDiv.forEach(element => {
-        element.addEventListener('mouseenter', () => {
+        element.addEventListener('mouseenter', (e) => {
             element.style.backgroundColor = `rgb(${random256()}, ${random256()}, ${random256()})`;
+            newDiv.style.transition = '0.3s';
         });
     });
 }

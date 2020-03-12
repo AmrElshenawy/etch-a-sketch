@@ -16,21 +16,18 @@ html {
     margin: auto;
     margin-top: 50px;
 }
-#container {
+.container {
     display: grid;
-    grid-template-columns: repeat(var(--quantity), 1fr);
-    grid-template-rows: repeat(var(--quantity), 1fr);
+    grid-template-columns: repeat(16, 1fr); /*repeat(var(--quantity), 1fr);*/
+    grid-template-rows: repeat(16, 1fr); /*repeat(var(--quantity), 1fr);*/
     height: 100%;
     width: 100%;
     margin: auto;
     margin-bottom: 40px;
-    /* opacity: 0.5; */
-    /* background-color: white; */
     box-shadow: 0 0 20px white;
-    
 }
 .cell {
-    border: 0.1px solid #bebcbc;
+    border: 0.1px solid #e9e5e5;
     background-color: white;
     width: auto;
     height: auto;

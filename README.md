@@ -3,6 +3,8 @@
 ### March 12th 2020 The Odin Project - Web Development 101 - JavaScript Basics - 9 
 #### Project: Etch-a-Sketch
 
+Check out [deployment page here.](https://amrelshenawy.github.io/etch-a-sketch/)
+
 This is an Etch-a-Sketch where the user have options to etch using a grey-scale brush or colorful brush using RNG for RGB. In addition, there is an erase button to undo cells and a reset button that allows them to completely reset the grid and choose a custom grid size between 2 and 100.
 
 This project utilized the following and the learning outcomes were:
